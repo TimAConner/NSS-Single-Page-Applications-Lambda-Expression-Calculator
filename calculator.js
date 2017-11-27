@@ -4,7 +4,7 @@
  */
 
  function multiply(x, y){
-     return (x * y);
+    return (parseFloat(x) * parseFloat(y));
  }
 
 /*
@@ -12,7 +12,7 @@
   passed in as arguments. Return the sum.
  */
 function add(x, y){
-    return (x + y);
+    return (parseFloat(x) + parseFloat(y));
 }
 
 /*
@@ -20,7 +20,7 @@ function add(x, y){
   passed in as arguments. Return the difference.
  */
 function subtract(x, y){
-    return (x - y);
+    return (parseFloat(x) - parseFloat(y));
 }
 
 /*
@@ -29,7 +29,7 @@ function subtract(x, y){
  */
 
 function divide(x, y){
-    return (x / y);
+    return (parseFloat(x) / parseFloat(y));
 }
 
 /*
@@ -42,7 +42,43 @@ function divide(x, y){
  */
 
  function mathmaticalFunction(x, y, func){
-     
+     let calculation = func(x, y);
+     document.getElementById("output").innerHTML = "<p> The answer is: " + calculation + "</p>";
  }
 
+/*
+Checks if input has any value.  If the input does not, replace with 0;
+*/
+
+function checkNaN(){
+    if(isNaN(parseFloat(document.getElementById("first-number").value))){
+        document.getElementById("first-number").value = 0;
+    }
+    if(isNaN(parseFloat(document.getElementById("second-number").value))){
+        document.getElementById("second-number").value = 0;
+    }
+}
  
+/*************
+Button on click event listeners
+*************/
+
+document.getElementById("add").addEventListener("click", function(){
+    checkNaN();
+    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, add);
+});
+
+document.getElementById("subtract").addEventListener("click", function(){
+    checkNaN();
+    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, subtract);
+});
+
+document.getElementById("multiply").addEventListener("click", function(){
+    checkNaN();
+    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, multiply);
+});
+
+document.getElementById("divide").addEventListener("click", function(){
+    checkNaN();
+    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, divide);
+});
