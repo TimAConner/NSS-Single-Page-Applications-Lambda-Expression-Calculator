@@ -37,13 +37,14 @@ function divide(x, y){
     1. First number
     2. Second number
     3. A function that performs an operation on them
+    4. Literal arithmatic string value
 
   Return the value of the operation.
  */
 
- function mathmaticalFunction(x, y, func){
+ function mathmaticalFunction(x, y, func, sign){
      let calculation = func(x, y);
-     document.getElementById("output").innerHTML = "<p> The answer is: " + calculation + "</p>";
+     document.getElementById("output").innerHTML = `<p> ${x} ${sign} ${y} = ${calculation}</p>`;
  }
 
 /*
@@ -65,20 +66,20 @@ Button on click event listeners
 
 document.getElementById("add").addEventListener("click", function(){
     checkNaN();
-    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, add);
+    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, add, "+");
 });
 
 document.getElementById("subtract").addEventListener("click", function(){
     checkNaN();
-    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, subtract);
+    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, subtract, "-");
 });
 
 document.getElementById("multiply").addEventListener("click", function(){
     checkNaN();
-    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, multiply);
+    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, multiply, "*");
 });
 
 document.getElementById("divide").addEventListener("click", function(){
     checkNaN();
-    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, divide);
+    mathmaticalFunction(document.getElementById("first-number").value, document.getElementById("second-number").value, divide, "/");
 });
